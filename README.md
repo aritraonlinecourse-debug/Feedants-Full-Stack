@@ -2,41 +2,43 @@
 
 A full-stack competition management application developed for the Feedants Full Stack Development Internship assignment.
 
-The project implements a dynamic Competition Details experience using React Native for the frontend, Node.js and Express.js for the backend, and MongoDB with Mongoose for data storage.
+The application uses React Native for the frontend, Node.js and Express.js for the backend, and MongoDB with Mongoose for the database.
 
 ## 1. Project Overview
 
-The application allows users to explore competitions and interact with them based on their current lifecycle stage.
+The application allows users to explore competitions and interact with them based on their current status.
 
-The main functionality includes:
+The main features are:
 
-1. Viewing available competitions.
-2. Viewing dynamically loaded competition details.
-3. Registering for competitions.
-4. Checking registration status.
-5. Cancelling an active registration.
-6. Saving competitions for later.
-7. Viewing saved and registered competitions through the dashboard.
-8. Submitting competition entries when submissions are open.
+1. View available competitions.
+2. View competition details loaded from the backend.
+3. Register for competitions.
+4. Check registration status.
+5. Cancel a registration.
+6. Save competitions.
+7. View saved and registered competitions from the dashboard.
+8. Submit competition entries when submissions are open.
 
-Competition data is stored in MongoDB and retrieved through backend APIs. No competition information required for the Competition Details experience is hardcoded in the frontend.
+All competition information is stored in MongoDB and loaded through backend APIs. Competition data is not hardcoded in the frontend.
 
-The implementation focuses on the functional requirements of the assignment, particularly competition lifecycle handling, registration state, participant capacity, remaining spots, validation, submissions, user-specific state, and backend data consistency.
+The main focus of the project is the Competition Details functionality, including competition status, registration, participant limits, remaining spots, submissions, validation, and user-specific actions.
 
-The Home tab is outside the primary scope of this assignment. Development was focused mainly on the Competition Details flow and the backend functionality required to support it.
+The Home tab is outside the main scope of this assignment.
 
 ## 2. Features
 
 ### 2.1 Competition Details
 
-Competition information is loaded dynamically from the backend and includes:
+Competition details are loaded dynamically from the backend.
+
+The application displays:
 
 1. Competition title.
 2. Category and tags.
 3. Prize pool.
 4. Entry fee.
-5. Current participant count.
-6. Maximum participant capacity.
+5. Current number of participants.
+6. Maximum participants.
 7. Remaining spots.
 8. Judge information.
 9. Competition description.
@@ -46,13 +48,13 @@ Competition information is loaded dynamically from the backend and includes:
 13. Rewards.
 14. Previous winners.
 
-Multiple competitions are supported, with each competition having its own details and lifecycle.
+The application supports multiple competitions, and each competition has its own details and timeline.
 
 ### 2.2 Competition Lifecycle
 
-The current competition state is calculated using the configured competition dates and the current time.
+The competition status is calculated using the competition dates and the current time.
 
-The application supports the following states:
+The supported states are:
 
 1. Upcoming
 2. Registration Open
@@ -61,9 +63,9 @@ The application supports the following states:
 5. Submission Closed
 6. Result Declared
 
-The current state is used by the frontend and backend to determine which information and actions should be available.
+The current state controls which actions are available to the user.
 
-For example, registration is allowed only during the registration period, while submission is available only during the submission period.
+For example, users can register only when registration is open, and they can submit an entry only when submissions are open.
 
 ### 2.3 Registration
 
@@ -72,60 +74,62 @@ Users can:
 1. Register when registration is open.
 2. Check their registration status.
 3. Cancel an active registration.
-4. Avoid duplicate registrations.
-5. Register only within the configured registration period.
-6. Register only when participant capacity is available.
+4. Prevent duplicate registrations.
+5. Register only during the registration period.
+6. Register only when spots are available.
 
-Registration rules are enforced by the backend rather than relying only on frontend state.
+These rules are checked by the backend instead of depending only on the frontend.
 
-The registration collection uses a unique competition-user combination to prevent duplicate registrations.
+A unique competition-user combination is used to prevent duplicate registrations.
 
-Participant capacity is also checked during the registration operation to provide safer handling when multiple users attempt to register at the same time.
+Participant capacity is also checked during registration so that multiple users registering at nearly the same time do not easily exceed the competition limit.
 
 ### 2.4 Competition Submission
 
-The backend supports competition submissions with:
+The backend supports competition submissions.
 
-1. Verification that the user is registered.
-2. Validation of the competition submission period.
-3. HTTP/HTTPS URL validation.
-4. Protection against duplicate submissions.
-5. User-specific submission retrieval.
+It checks:
 
-The submission functionality becomes available according to the competition's lifecycle.
+1. Whether the user is registered.
+2. Whether submissions are currently open.
+3. Whether the submitted URL uses HTTP or HTTPS.
+4. Whether the user has already submitted an entry.
+5. The user's submission for a specific competition.
+
+Submission availability depends on the competition lifecycle.
 
 ### 2.5 Saved Competitions
 
 Users can:
 
-1. Save competitions.
-2. Remove saved competitions.
+1. Save a competition.
+2. Remove a saved competition.
 3. Check whether a competition is already saved.
 4. View saved competitions from the dashboard.
 
-Saved competition information is stored against the corresponding user in MongoDB.
+Saved competitions are stored in the user's MongoDB record.
 
 ### 2.6 User Dashboard
 
-The dashboard provides access to:
+The dashboard provides:
 
 1. User information.
 2. Registered competitions.
 3. Saved competitions.
-4. Competition-specific registration status.
+4. Registration status.
 5. Profile information.
-6. Profile information updates.
+6. Profile update functionality.
 
 ### 2.7 Validation and Error Handling
 
-The backend validates important application operations, including:
+The backend validates important requests, including:
 
 1. MongoDB ObjectId values.
 2. Competition existence.
 3. User existence.
-4. Registration lifecycle.
+4. Registration timing.
 5. Participant capacity.
-6. Submission lifecycle.
+6. Submission timing.
 7. Submission URL format.
 8. Duplicate registrations.
 9. Duplicate submissions.
@@ -133,7 +137,7 @@ The backend validates important application operations, including:
 11. User email format.
 12. User phone format.
 
-Centralized error handling and validation middleware are also used to keep backend behavior consistent.
+Centralized error handling and validation middleware are also used to handle invalid requests consistently.
 
 ## 3. Technology Stack
 
