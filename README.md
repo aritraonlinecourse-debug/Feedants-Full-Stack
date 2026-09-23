@@ -290,7 +290,8 @@ Add database backup and recovery procedures.
 Add pagination for large competition and participant lists.
 Add CI/CD pipelines for automated testing and deployment.
 Perform load and concurrency testing for high-traffic registration periods.
-Add an administration interface for creating and managing competitions.
+Add an administration interface for creating and managing competitions. 
+Add multilingual support so users can switch the application from English to Hindi and later to other regional and international languages.
 ## 9. API Overview
 Competition APIs
 ```
