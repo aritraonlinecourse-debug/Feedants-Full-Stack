@@ -369,7 +369,7 @@ The seeded competitions have different registration and submission timelines, al
 
 The main focus of this implementation is the Competition Details experience and the backend functionality required to support it.
 
-The project demonstrates:
+This project demonstrates:
 
 Dynamic backend-driven competition data.
 Competition lifecycle management.
@@ -388,6 +388,11 @@ The Home tab and broader platform functionality are outside the primary scope of
 
 ## 14. Conclusion
 
-This project demonstrates a full-stack competition management workflow using React Native, Node.js, Express.js, and MongoDB.The implementation focuses on dynamic competition data, lifecycle-based actions, backend-enforced business rules, participant capacity handling, registration and submission management, and user-specific competition interactions.
+This project covers the main requirements of a full-stack competition management application, including dynamic competition data, competition lifecycle management, user registration, participant capacity handling, saved competitions, user dashboard functionality, submission handling, backend validation, database modelling, REST APIs, and concurrency-aware registration.
 
+The project also focuses on keeping the frontend and backend connected through dynamic APIs rather than relying on hardcoded competition information.
+
+For future development, the application can be extended with features such as secure authentication and authorization, an admin panel for competition management, real-time updates using WebSockets, notifications, improved testing, caching, monitoring, stronger security, production deployment, and additional scalability and performance improvements.
+
+Overall, the implementation provides a functional foundation which can be further expanded into a complete production-ready competition management platform.
 The implementation focuses on dynamic competition data, lifecycle-based actions, backend-enforced business rules, participant capacity handling, registration and submission management, and user-specific competition interactions.
