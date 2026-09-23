@@ -365,7 +365,7 @@ backend/src/seed/
 ```
 The seeded competitions have different registration and submission timelines, allowing different competition lifecycle states and flows to be tested.
 
-## 13. Assignment Scope
+## 13. Key Highlights
 
 The main focus of this implementation is the Competition Details experience and the backend functionality required to support it.
 
