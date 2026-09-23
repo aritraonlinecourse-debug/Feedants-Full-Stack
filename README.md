@@ -200,7 +200,7 @@ Feedants-Full-Stack-Assignment/
 └── docs/
     ├── api/
     └── architecture/
-
+```
 ## 5. Important Assumptions
 
 The following assumptions were made while implementing the assignment:
@@ -293,29 +293,33 @@ Perform load and concurrency testing for high-traffic registration periods.
 Add an administration interface for creating and managing competitions.
 ## 9. API Overview
 Competition APIs
+```
 GET /api/competitions
 GET /api/competitions/:competitionId
-
+```
 Used to retrieve the competition list and individual competition details.
 
 Registration APIs
+```
 POST   /api/competitions/:competitionId/register
 GET    /api/competitions/:competitionId/registration/:userId
 DELETE /api/competitions/:competitionId/registration/:userId
-
+```
 Used for registration, checking registration status, and cancelling registration.
 
 Submission APIs
+```
 POST /api/competitions/:competitionId/submissions
 GET  /api/competitions/:competitionId/submissions/:userId
-
+```
 Used to create and retrieve competition submissions.
 
 Saved Competition APIs
+```
 POST   /api/users/:userId/saved-competitions/:competitionId
 DELETE /api/users/:userId/saved-competitions/:competitionId
 GET    /api/users/:userId/saved-competitions/:competitionId
-
+```
 Used to save, remove, and check saved competition status.
 
 ## 10. Environment Configuration
@@ -323,32 +327,32 @@ Used to save, remove, and check saved competition status.
 Backend environment variables are stored in the backend .env file and are excluded from version control.
 
 Example:
-
+```
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
-
+```
 The actual .env file must not be committed to GitHub.
 
 ## 11. Running the Project
 Backend
 
 From the project root:
-
+```
 cd backend
 npm install
 npm start
-
+```
 The backend runs on the configured port, for example:
-
+```
 http://localhost:5000
+```
 Frontend
-
 From the project root:
-
+```
 cd frontend
 npm install
 npx expo start
-
+```
 The application can then be opened using the available Expo development options.
 
 ## 12. Seed Data
@@ -356,9 +360,9 @@ The application can then be opened using the available Expo development options.
 The project includes seed scripts for creating demonstration competition and user data.
 
 The seed scripts are located at:
-
+```
 backend/src/seed/
-
+```
 The seeded competitions have different registration and submission timelines, allowing different competition lifecycle states and flows to be tested.
 
 ## 13. Assignment Scope
@@ -384,6 +388,6 @@ The Home tab and broader platform functionality are outside the primary scope of
 
 ## 14. Conclusion
 
-This project demonstrates a full-stack competition management workflow using React Native, Node.js, Express.js, and MongoDB.
+This project demonstrates a full-stack competition management workflow using React Native, Node.js, Express.js, and MongoDB.The implementation focuses on dynamic competition data, lifecycle-based actions, backend-enforced business rules, participant capacity handling, registration and submission management, and user-specific competition interactions.
 
 The implementation focuses on dynamic competition data, lifecycle-based actions, backend-enforced business rules, participant capacity handling, registration and submission management, and user-specific competition interactions.
